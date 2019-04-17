@@ -1,5 +1,5 @@
 
-package Media_1;
+package e1005;
 
 import java.util.Scanner;
 

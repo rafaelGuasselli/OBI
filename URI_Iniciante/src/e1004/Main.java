@@ -1,5 +1,5 @@
 
-package Produto_Simples;
+package e1004;
 
 import java.util.Scanner;
 
