@@ -1,70 +1,31 @@
 package e1021;
 
 import java.util.Scanner;
-
+// by Gabriel Rebechi
 public class Main {
-	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		float valorTotal = in.nextFloat();
-
-		int valorMoedas = Math.round((valorTotal % 1) * 1000)/10;
-		int valorNotas = Math.round(valorTotal - (valorMoedas/100));
-		
-		int aux;
-		System.out.println("NOTAS:");
-		
-
-		aux = (valorNotas - (valorNotas % 100))/100;
-		System.out.println(aux + " nota(s) de R$ 100.00");
-		valorNotas -= (aux * 100);
-		
-		aux = (valorNotas - (valorNotas % 50))/50;
-		System.out.println(aux + " nota(s) de R$ 50.00");
-		valorNotas -= (aux * 50);
-		
-		aux = (valorNotas - (valorNotas % 20))/20;
-		System.out.println(aux + " nota(s) de R$ 20.00");
-		valorNotas -= (aux * 20);
-		
-		aux = (valorNotas - (valorNotas % 10))/10;
-		System.out.println(aux + " nota(s) de R$ 10.00");
-		valorNotas -= (aux * 10);
-		
-		aux = (valorNotas - (valorNotas % 5))/5;
-		System.out.println(aux + " nota(s) de R$ 5.00");
-		valorNotas -= (aux * 5);
-		
-		aux = (valorNotas - (valorNotas % 2))/2;
-		System.out.println(aux + " nota(s) de R$ 2.00");
-		valorNotas -= (aux * 2);
-		
-		
-		System.out.println("MOEDAS:");
-		
-		
-		aux = (valorNotas - (valorNotas % 1))/1;
-		System.out.println(aux + " moeda(s) de R$ 1.00");
-		valorNotas -= (aux * 1);
-		
-		
-		aux = ((valorMoedas - (valorMoedas % 50))/50);
-		System.out.println(aux + " moeda(s) de R$ 0.50");
-		valorMoedas = valorMoedas - (aux * 50);
-		
-		aux = ((valorMoedas - (valorMoedas % 25))/25);
-		System.out.println(aux + " moeda(s) de R$ 0.25");
-		valorMoedas -= (aux * 25);
-		
-		aux = ((valorMoedas - (valorMoedas % 10))/10);
-		System.out.println(aux + " moeda(s) de R$ 0.10");
-		valorMoedas -= (aux * 10);
-		
-		aux = ((valorMoedas - (valorMoedas % 5))/5);
-		System.out.println(aux + " moeda(s) de R$ 0.05");
-		valorMoedas -= (aux * 5);
-	
-		aux = ((valorMoedas - (valorMoedas % 1))/1);
-		System.out.println(aux + " moeda(s) de R$ 0.01");
-		valorMoedas -= (aux * 1);
+	public static void main(String[] args){
+		Scanner scan = new Scanner(System.in);
+		double valor, valorMoedas;
+		int valorint, notas100, notas50, notas20, notas10, notas5, notas2, moedas1, moedas050, moedas025, moedas010, moedas005, moedas001;
+		valor = scan.nextDouble();
+		valorint = (int) valor;
+		valorMoedas = valor - valorint;
+		valorMoedas = Math.round(valorMoedas * 100);
+		notas100 = valorint/100;
+		notas50 = (valorint%100)/50;
+		notas20 = ((valorint%100)%50)/20;
+		notas10 = (((valorint%100)%50)%20)/10;
+		notas5 = ((((valorint%100)%50)%20)%10)/5;
+		notas2 = (((((valorint%100)%50)%20)%10)%5)/2;
+		moedas1 = (((((valorint%100)%50)%20)%10)%5)%2;
+		moedas050 = (int) valorMoedas/50;
+		moedas025 = ((int) valorMoedas%50)/25;
+		moedas010 = (((int) valorMoedas%50)%25)/10;
+		moedas005 = ((((int) valorMoedas%50)%25)%10)/5;
+		moedas001 = ((((int) valorMoedas%50)%25)%10)%5;
+		System.out.println("NOTAS:\n" + notas100 + " nota(s) de R$ 100.00\n" + notas50 + " nota(s) de R$ 50.00\n" + notas20 + " nota(s) de R$ 20.00\n"
+			 + notas10 + " nota(s) de R$ 10.00\n" + notas5 + " nota(s) de R$ 5.00\n" + notas2 + " nota(s) de R$ 2.00\nMOEDAS:\n" + moedas1 +
+			 " moeda(s) de R$ 1.00\n" + moedas050 + " moeda(s) de R$ 0.50\n" + moedas025 + " moeda(s) de R$ 0.25\n" + moedas010 + " moeda(s) de R$ 0.10\n"
+			  + moedas005 + " moeda(s) de R$ 0.05\n"+ moedas001 + " moeda(s) de R$ 0.01");
 	}
 }
